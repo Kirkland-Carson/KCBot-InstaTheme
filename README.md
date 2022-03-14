@@ -1,4 +1,4 @@
-# Kirkland Carson's Bot: InstaTheme
+# KCBot : InstaTheme
 Automated Instagram Theme Page Builder. Posts, Interacts, and Gains Followers. Built with Instagram Account Sellers in mind.
 
 Reposts content w/ desc & tags, follows and unfollows normal consumers/peoples accounts that follow the pre-set theme pages for the best audience.
