@@ -1,8 +1,15 @@
 # KCBot : InstaTheme
-Automated Instagram Theme Page Builder. Posts, Interacts, and Gains Followers. Built with Instagram Account Sellers in mind.
+Fully Automated Instagram Theme Page Builder. Posts, Interacts, and Gains Followers. Built with Instagram Account Sellers in mind.
 
 Reposts content w/ desc & tags, follows and unfollows normal consumers/peoples accounts that follow the pre-set theme pages for the best audience.
 Program written with Ghost Bans kept in mind, for your own accounts protection.
+
+Either go with a FULLY AUTOMATED ACCOUNT or a SEMI AUTOMATED MODE...
+Fully Automated Account:
+Used for little to no interaction with account. Full automated processes.
+
+Semi Automated Mode:
+Call functions manually called for maximum control
 
 _________________________________________________________________________
 
@@ -17,8 +24,6 @@ _________________________________________________________________________
 
 _________________________________________________________________________
 
-*Instructions:*
+*Current Ver. Instructions:*
 1) Type Username & Password for Bot to login.
 2) Select Theme Page Pre-set (current ver: List must be manually written)
-3) Select functions/Pre-set Daily Usages
-4) repeat 3 if semi-automted setup
