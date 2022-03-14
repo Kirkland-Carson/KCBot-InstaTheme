@@ -16,3 +16,9 @@ _________________________________________________________________________
 4) Interact (like and comment) with your followers and the Pre-Set Pages. (Follower Retention)
 
 _________________________________________________________________________
+
+*Instructions:*
+1) Type Username & Password for Bot to login.
+2) Select Theme Page Pre-set (current ver: List must be manually written)
+3) Select functions/Pre-set Daily Usages
+4) repeat 3 if semi-automted setup
