@@ -25,5 +25,8 @@ _________________________________________________________________________
 _________________________________________________________________________
 
 *Current Ver. Instructions:*
-1) Type Username & Password for Bot to login.
-2) Select Theme Page Pre-set (current ver: List must be manually written)
+1) Start with 'InstaTheme_Start.py'
+2) Choose to either start a new account, or if you already have a config login with that.
+3) Select: 'Fully Automated' or 'Semi Automated' (early versions will only have: 'ver')
+4) Select Default Theme pages to gain passive followers from, or make your own Custom list!
+5) Let the bot run! (versions 1.x do not have this feature after making new account, rerun startup and login with 'old' acc)
