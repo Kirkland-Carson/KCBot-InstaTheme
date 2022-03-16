@@ -90,7 +90,7 @@ class FoUf:
         time.sleep(3)
         driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a/div").click()    
         time.sleep(3)
-        def FolRef():
+                def FolRef():
             refCount = 0
             try:
                 driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a/div").click()
@@ -109,6 +109,7 @@ class FoUf:
                     FolRef()
                 else:
                     pass
+        FolRef()
 
     if __name__ == "__main__":
         xCall = FoUf(userName, userPass, userCust)
