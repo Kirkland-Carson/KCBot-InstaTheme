@@ -45,37 +45,40 @@ class FoUf:
         else:
             def UnfRef():
                 refCount = 0
-                try:
-                    driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div").click() #click on followerING button
-                    time.sleep(2)
-                    htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li[1]/div/div[3]/button"   
-                    for i in range(1,45,1):         
-                        htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button"
-                        if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button").text == "Follow"):
-                            continue    
-                        driver.find_element_by_xpath(htmlUnfollow).click()
-                        driver.find_element_by_xpath("/html/body/div[7]/div/div/div/div[3]/button[1]").click()
+                if driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div/span").text == "0":
+                    print("You are no longer following anyone!")
+                else:
+                    try:
+                        driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div").click() #click on followerING button
                         time.sleep(2)
-                        refCount = refCount + 1
-                except:
-                    driver.refresh()
-                    if refCount <= 45:
-                        UnfRef()
-                    else:
-                        print(" ")
-                        print(" ")
-                        print(" ")
-                        print("You have maxed out your Unfollows for 2 hours!")
-                        print("If your account is on Fully Automaed, this will auto repeat by itself again in 2 hours.")
-                        print("If your account is on Semi Automaed, Please refrain from running script to avoid Ghost Ban.")
-                        print(" ")
-                        print("(if you must run it again, do it in 1 hour. Instagram has 150acc soft cap per 'day')")
-                        print("(This means every 8 hours, you can run 150 accounts, in 24 hours thats 450.)")
-                        print("(To avoid soft cap, run 40, every 2 hours to avoid account resets)")
-                        print(" ")
-                        print(" ")
-                        print(" ")
-                        pass
+                        htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li[1]/div/div[3]/button"   
+                        for i in range(1,45,1):         
+                            htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button"
+                            if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button").text == "Follow"):
+                                continue    
+                            driver.find_element_by_xpath(htmlUnfollow).click()
+                            driver.find_element_by_xpath("/html/body/div[7]/div/div/div/div[3]/button[1]").click()
+                            time.sleep(2)
+                            refCount = refCount + 1
+                    except:
+                        driver.refresh()
+                        if refCount <= 45:
+                            UnfRef()
+                        else:
+                            print(" ")
+                            print(" ")
+                            print(" ")
+                            print("You have maxed out your Unfollows for 2 hours!")
+                            print("If your account is on Fully Automaed, this will auto repeat by itself again in 2 hours.")
+                            print("If your account is on Semi Automaed, Please refrain from running script to avoid Ghost Ban.")
+                            print(" ")
+                            print("(if you must run it again, do it in 1 hour. Instagram has 150acc soft cap per 'day')")
+                            print("(This means every 8 hours, you can run 150 accounts, in 24 hours thats 450.)")
+                            print("(To avoid soft cap, run 40, every 2 hours to avoid account resets)")
+                            print(" ")
+                            print(" ")
+                            print(" ")
+                            pass
             UnfRef()
         ############################################################################################################################################
         # follow ###################################################################################################################################
