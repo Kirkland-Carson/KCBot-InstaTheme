@@ -94,6 +94,9 @@ def main():
             else:
                 print('Please write only valid options : ', ",".join(preChk))
         if preNew == ("custom"):
+            clear()
+            call_ascii('ascii_logo.txt')
+            print(" ")
             print(" ")
             print("List Accounts to add to your watch list!")
             print(" ")
@@ -109,7 +112,12 @@ def main():
             print("Some features may not work, and cause crashes.")
             print(" ")
             print("To change this, edit the config file in your config folder.")
-
+            print(" ")
+            print(" ")
+            print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
+            print(" ")
+            print(" ")
+            
         ###################################################################################
         # Write new Config ################################################################
         ###################################################################################
@@ -125,24 +133,26 @@ def main():
         ###################################################################################
         # Auto Start new accounts #########################################################
         ###################################################################################
-
-    #    if modeNew == (auto):
-    #        break
-    #    elif modeNew == (semi):
-    #        break
-    #    elif modeNew == (ver):
-    #        FoUf(
-    #    else:
-    #        print("You have not selected a Bot Mode.")
-    #        print("Please edit your config file.")
-    #        print(" ")
-    #        print("Config File Example:")
-    #        print("user:pass")
-    #        print("auto <- This will be 'auto' or 'semi'")
-    #        print("list,of,page,names,here")
-    #        print(" ")
-    #        print(" ")
-    #        exit()
+        if modeNew == ("auto"):
+            print("auto")
+        elif modeNew == ("semi"):
+            print("semi")
+        elif modeNew == ("ver"):
+            impFoUf.userName = userNew
+            impFoUf.userPass = passNew
+            impFoUf.userCust = preCust
+            impFoUf.main()
+        else:
+            print("You have not selected a Bot Mode.")
+            print("Please edit your config file.")
+            print(" ")
+            print("Config File Example:")
+            print("user:pass")
+            print("auto <- This will be 'auto' or 'semi'")
+            print("list,of,page,names,here")
+            print(" ")
+            print(" ")
+            exit()
 
         ###################################################################################
         # Finished Registry ###############################################################

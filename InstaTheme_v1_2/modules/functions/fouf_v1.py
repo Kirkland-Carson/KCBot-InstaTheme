@@ -23,18 +23,31 @@ class FoUf:
         
         driver.get("https://instagram.com/")
         
-        driver.find_element_by_xpath("//input[@name=\"username\"]").send_keys(self.userName)
-        driver.find_element_by_xpath("//input[@name=\"password\"]").send_keys(self.userPass)
-        time.sleep(2)
-        driver.find_element_by_xpath('//button[@type="submit"]').click()
-        time.sleep(5)
+        def login():
+            driver.find_element_by_xpath("//input[@name=\"username\"]").send_keys(self.userName)
+            driver.find_element_by_xpath("//input[@name=\"password\"]").send_keys(self.userPass)
+            time.sleep(2)
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+            time.sleep(8)
         
-        driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
-        time.sleep(2)
+            try:
+                driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
+                time.sleep(5)
+                if driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]"):
+                    driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
+            except:
+                try:
+                    driver.find_element_by_xpath("//*[@id='slfErrorAlert']")
+                    login()
+                except:
+                    time.sleep(5)
+        login()
+        time.sleep(10)
         
         ##############################################################################################################################################
         # Unfollow ###################################################################################################################################
         ##############################################################################################################################################
+        #div class="RnEpo  Yx5HN <-- For those who get this error, this is the trigger for infinite scroll loader. Refresh page to ignore.
 
         driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[3]/div/div[6]/span/img").click() #click profile
         time.sleep(2)
@@ -43,73 +56,58 @@ class FoUf:
         if driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div/span").text == "0":
             print("You are no longer following anyone!")
         else:
-            def UnfRef():
-                refCount = 0
-                if driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div/span").text == "0":
-                    print("You are no longer following anyone!")
-                else:
-                    try:
-                        driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div").click() #click on followerING button
-                        time.sleep(2)
-                        htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li[1]/div/div[3]/button"   
-                        for i in range(1,45,1):         
-                            htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button"
-                            if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button").text == "Follow"):
-                                continue    
-                            driver.find_element_by_xpath(htmlUnfollow).click()
-                            driver.find_element_by_xpath("/html/body/div[7]/div/div/div/div[3]/button[1]").click()
+            def UnfRef(num_ref = 4):
+                for numRef in range(num_ref):
+                    if driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div/span").text == "0":
+                        pass
+                    else:
+                        try:
+                            driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div").click() #click on followerING button
                             time.sleep(2)
-                            refCount = refCount + 1
-                    except:
-                        driver.refresh()
-                        if refCount <= 45:
-                            UnfRef()
-                        else:
-                            print(" ")
-                            print(" ")
-                            print(" ")
-                            print("You have maxed out your Unfollows for 2 hours!")
-                            print("If your account is on Fully Automaed, this will auto repeat by itself again in 2 hours.")
-                            print("If your account is on Semi Automaed, Please refrain from running script to avoid Ghost Ban.")
-                            print(" ")
-                            print("(if you must run it again, do it in 1 hour. Instagram has 150acc soft cap per 'day')")
-                            print("(This means every 8 hours, you can run 150 accounts, in 24 hours thats 450.)")
-                            print("(To avoid soft cap, run 40, every 2 hours to avoid account resets)")
-                            print(" ")
-                            print(" ")
-                            print(" ")
-                            pass
+                            htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li[1]/div/div[3]/button"   
+                            for i in range(1,13,1):         
+                                htmlUnfollow = "/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button"
+                                if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[3]/ul/div/li["+str(i)+"]/div/div[3]/button").text == "Follow"):
+                                    continue    
+                                driver.find_element_by_xpath(htmlUnfollow).click()
+                                driver.find_element_by_xpath("/html/body/div[7]/div/div/div/div[3]/button[1]").click()
+                                time.sleep(2)
+                        except:
+                            driver.refresh()
             UnfRef()
         ############################################################################################################################################
         # follow ###################################################################################################################################
         ############################################################################################################################################
+        #div class="RnEpo  Yx5HN <-- For those who get this error, this is the trigger for infinite scroll loader. Refresh page to ignore.
 
-        driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[1]/div").click()
-        time.sleep(4)
-        driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/input").send_keys(random.choice(self.userCust.split(',')) + Keys.ENTER)
-        time.sleep(3)
-        driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a/div").click()    
-        time.sleep(3)
-                def FolRef():
-            refCount = 0
+        def FolReset():
             try:
-                driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a/div").click()
-                htmlBadBoyToFollow = "/html/body/div[6]/div/div/div/div[2]/ul/div/li[1]/div/div[3]/button"   
-                for i in range(1,49,1):
-                    htmlBadBoyToFollow = "/html/body/div[6]/div/div/div/div[2]/ul/div/li["+str(i)+"]/div/div[3]/button"
-                    if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[2]/ul/div/li["+str(i)+"]/div/div[3]/button").text == "Following"):
-                        continue        
-                    driver.find_element_by_xpath(htmlBadBoyToFollow).click()
-                    time.sleep(3)
-                    refCount = refCount + 1
+                driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[1]/div").click()
             except:
                 driver.refresh()
-                print(refCount)
-                if refCount <= 49:
-                    FolRef()
-                else:
-                    pass
-        FolRef()
+            time.sleep(4)
+            driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/input").send_keys(random.choice(self.userCust.split(',')) + Keys.ENTER)
+            time.sleep(3)
+            driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a/div").click()    
+            time.sleep(3)
+            def FolRef(num_ref = 4):
+                for numRef in range(num_ref):
+                    try:
+                        driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a/div").click()
+                        if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[2]/ul/div/li[1]/div/div[3]/button").text == "Following"):
+                            FolReset()
+                        else:
+                            htmlBadBoyToFollow = "/html/body/div[6]/div/div/div/div[2]/ul/div/li[1]/div/div[3]/button"   
+                            for i in range(1,13,1):
+                                htmlBadBoyToFollow = "/html/body/div[6]/div/div/div/div[2]/ul/div/li["+str(i)+"]/div/div[3]/button"
+                                if (driver.find_element_by_xpath("/html/body/div[6]/div/div/div/div[2]/ul/div/li["+str(i)+"]/div/div[3]/button").text == "Following"):
+                                    continue        
+                                driver.find_element_by_xpath(htmlBadBoyToFollow).click()
+                                time.sleep(3)
+                    except:
+                        driver.refresh()
+            FolRef()
+        FolReset()
 
     if __name__ == "__main__":
         xCall = FoUf(userName, userPass, userCust)
