@@ -13,6 +13,8 @@ Call functions manually called for maximum control
 
 _________________________________________________________________________
 
+# Bot Functions
+
 *CURRENT Active Bot Functions:*
 1) Follow/Unfollow Pre-Set Page Consumers. (Passive Growth)
 
@@ -23,6 +25,8 @@ _________________________________________________________________________
 4) Interact (like and comment) with your followers and the Pre-Set Pages. (Follower Retention)
 
 _________________________________________________________________________
+
+# Instructions
 
 *Current Ver. Instructions:*
 1) Start with 'InstaTheme_Start.py'
