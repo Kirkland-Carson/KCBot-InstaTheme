@@ -1,4 +1,4 @@
-![InstaTheme Logo/banner](https://imgur.com/a/3V57xcS)
+![InstaTheme Logo/banner](https://i.imgur.com/dlfLeh7.png)
 
 Fully Automated Instagram Theme Page Builder. Posts, Interacts, and Gains Followers. Built with Instagram Account Sellers in mind.
 
