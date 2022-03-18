@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import time, sys, os, random, getpass
 import selenium
-import modules.functions.fouf_v1
-from modules.functions.fouf_v1 import FoUf
+import modules.fouf_v1
+from modules.fouf_v1 import FoUf
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
