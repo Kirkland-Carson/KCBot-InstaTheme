@@ -187,10 +187,12 @@ def main():
                 impFoUf.userName = userName
                 impFoUf.userPass = userPass
                 impFoUf.userCust = userCust
+                impScrape.userName = userName
+                impScrape.userPass = userPass
                 impScrape.userCust = userCust
                 while True:
                     impFoUf.main()
-                    impScrape.main()
+                    #impScrape.main()
                     time.sleep(2700)
             else:
                 print("You have not selected a Bot Mode.")
@@ -214,6 +216,8 @@ if __name__ == "__main__":
     impFoUf.userName = ""
     impFoUf.userPass = ""
     impFoUf.userCust = []
+    impScrape.userName = ""
+    impScrape.userPass = ""
     impScrape.userCust = []
 
     main()
