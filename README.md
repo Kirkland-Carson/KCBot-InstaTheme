@@ -17,7 +17,8 @@ _________________________________________________________________________
 # Bot Functions
 
 *CURRENT Active Bot Functions:*
-1) Follow/Unfollow Pre-Set Page Consumers. (Passive Growth)
+1) [Done] Follow/Unfollow Pre-Set Page Consumers. (Passive Growth)
+2) [WIP] Repost content from Pre-Set Pages w/ Custom Descriptions and Hashtags for Reposts. (Constant Content)
 
 *GOAL Bot Functions:*
 1) Follow/Unfollow Pre-Set Page Consumers. (Passive Growth)
