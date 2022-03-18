@@ -16,6 +16,10 @@ class FoUf:
         self.userCust = userCust
         
     def main(self):
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference('browser.download.folderList', 2)
+        profile.set_preference('browser.download.dir', '/tmpUpload')
+        profile.set_preference('browser.download.manager', False)
         driver = webdriver.Firefox()
         wait = WebDriverWait(driver, 10)
 
@@ -54,7 +58,7 @@ class FoUf:
         if driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div/span").text == "0":
             print("You are no longer following anyone!")
         else:
-            def UnfRef(num_ref = 2):
+            def UnfRef(num_ref = 3):
                 for numRef in range(num_ref):
                     if driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[3]/a/div/span").text == "0":
                         pass
@@ -84,7 +88,7 @@ class FoUf:
             time.sleep(3)
             driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a/div").click()    
             time.sleep(3)
-            def FolRef(num_ref = 2):
+            def FolRef(num_ref = 3):
                 for numRef in range(num_ref):
                     try:
                         driver.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a/div").click()
@@ -102,10 +106,8 @@ class FoUf:
                         driver.refresh()
             FolRef()
         FolReset()
+        driver.close()
 
     if __name__ == "__main__":
         xCall = FoUf(userName, userPass, userCust)
-        inf = 0
-        if inf <= 10:
-            xCall.main()
-            time.sleep(1650)
+        xCall.main()

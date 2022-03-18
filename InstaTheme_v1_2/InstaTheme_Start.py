@@ -3,6 +3,8 @@ import time, sys, os, random, getpass
 import selenium
 import modules.fouf_v1
 from modules.fouf_v1 import FoUf
+import modules.functions.scrape
+from modules.functions.scrape import scrape
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -13,6 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 ###################################################################################
 clear = lambda: os.system('clear')
 impFoUf = FoUf()
+impScrape = scrape()
 
 def call_ascii(fn):
     f = open('ascii_logo.txt','r')
@@ -133,27 +136,27 @@ def main():
         ###################################################################################
         # Auto Start new accounts #########################################################
         ###################################################################################
-        if modeNew == ("auto"):
-            print("auto")
-        elif modeNew == ("semi"):
-            print("semi")
-        elif modeNew == ("ver"):
-            impFoUf.userName = userNew
-            impFoUf.userPass = passNew
-            impFoUf.userCust = preCust
-            impFoUf.main()
-        else:
-            print("You have not selected a Bot Mode.")
-            print("Please edit your config file.")
-            print(" ")
-            print("Config File Example:")
-            print("user:pass")
-            print("auto <- This will be 'auto' or 'semi'")
-            print("list,of,page,names,here")
-            print(" ")
-            print(" ")
-            exit()
-
+        #if modeNew == ("auto"):
+        #    print("auto")
+        #elif modeNew == ("semi"):
+        #    print("semi")
+        #elif modeNew == ("ver"):
+        #    impFoUf.userName = userNew
+        #    impFoUf.userPass = passNew
+        #    impFoUf.userCust = preCust
+        #    impFoUf.main()
+        #else:
+        #    print("You have not selected a Bot Mode.")
+        #    print("Please edit your config file.")
+        #    print(" ")
+        #    print("Config File Example:")
+        #    print("user:pass")
+        #    print("auto <- This will be 'auto' or 'semi'")
+        #    print("list,of,page,names,here")
+        #    print(" ")
+        #    print(" ")
+        #    exit()
+        #
         ###################################################################################
         # Finished Registry ###############################################################
         ###################################################################################
@@ -184,8 +187,10 @@ def main():
                 impFoUf.userName = userName
                 impFoUf.userPass = userPass
                 impFoUf.userCust = userCust
+                impScrape.userCust = userCust
                 while True:
                     impFoUf.main()
+                    impScrape.main()
                     time.sleep(2700)
             else:
                 print("You have not selected a Bot Mode.")
@@ -203,10 +208,12 @@ def main():
         
 if __name__ == "__main__":
     impFoUf = FoUf()
+    impScrape = scrape()
     
     # Set usernames
     impFoUf.userName = ""
     impFoUf.userPass = ""
     impFoUf.userCust = []
+    impScrape.userCust = []
 
     main()
