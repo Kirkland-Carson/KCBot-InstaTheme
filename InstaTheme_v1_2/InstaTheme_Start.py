@@ -184,7 +184,9 @@ def main():
                 impFoUf.userName = userName
                 impFoUf.userPass = userPass
                 impFoUf.userCust = userCust
-                impFoUf.main()
+                while True:
+                    impFoUf.main()
+                    time.sleep(2700)
             else:
                 print("You have not selected a Bot Mode.")
                 print("Please edit your config file.")
